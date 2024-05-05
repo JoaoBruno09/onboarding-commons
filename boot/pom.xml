@@ -10,14 +10,14 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <packaging>jar</packaging>
+    <groupId>com.bank.onboarding.commonslib</groupId>
     <artifactId>boot</artifactId>
 
     <properties>
-        <start-class>com.bank.onboarding.commonslib.Application</start-class>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <start-class>com.bank.onboarding.commonslib.boot.Application</start-class>
     </properties>
     <dependencies>
         <dependency>
