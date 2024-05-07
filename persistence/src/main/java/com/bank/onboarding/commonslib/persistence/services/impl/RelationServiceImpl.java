@@ -1,0 +1,27 @@
+package com.bank.onboarding.commonslib.persistence.services.impl;
+
+import com.bank.onboarding.commonslib.persistence.models.Relation;
+import com.bank.onboarding.commonslib.persistence.repositories.RelationRepository;
+import com.bank.onboarding.commonslib.persistence.services.RelationService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+@Slf4j
+@Transactional
+@Service
+@RequiredArgsConstructor
+public class RelationServiceImpl implements RelationService {
+
+    private final RelationRepository relationRepository;
+
+    @Override
+    public List<Relation> getAllRelations() {
+        return Optional.of(relationRepository.findAll()).orElse(Collections.emptyList());
+    }
+}
