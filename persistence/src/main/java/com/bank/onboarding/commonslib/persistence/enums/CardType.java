@@ -1,7 +1,9 @@
 package com.bank.onboarding.commonslib.persistence.enums;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public enum CardType {
     CD("Cartão de débito"),

@@ -21,9 +21,21 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.bank.onboarding</groupId>
+            <groupId>com.bank.onboarding.commonslib</groupId>
             <artifactId>persistence</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bank.onboarding.commonslib</groupId>
+            <artifactId>web</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bank.onboarding.commonslib</groupId>
+            <artifactId>utils</artifactId>
+            <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

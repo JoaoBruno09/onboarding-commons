@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.bank.onboarding.commonslib</groupId>
-    <artifactId>persistence</artifactId>
+    <artifactId>web</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -19,5 +19,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
+
+    <dependencies>
+    </dependencies>
 
 </project>
