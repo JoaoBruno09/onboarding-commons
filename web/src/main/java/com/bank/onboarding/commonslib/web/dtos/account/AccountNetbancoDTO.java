@@ -7,4 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class AccountNetbancoDTO {
     private boolean wantsNetbanco;
+    private int accountPhase;
 }

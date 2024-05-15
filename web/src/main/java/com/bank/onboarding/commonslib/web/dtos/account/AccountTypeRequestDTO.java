@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class AccountTypeRequestDTO {
-    private Boolean accountActive;
+    private boolean accountActive;
     private String accountType;
-    private Integer accountPhase;
+    private int accountPhase;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime customerBirthDate;
     private String customerProfession;

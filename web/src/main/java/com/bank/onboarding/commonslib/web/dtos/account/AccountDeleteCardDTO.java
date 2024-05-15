@@ -7,8 +7,6 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class AccountCardDTO {
-    private String cardType;
-    private List<String> customerNumber;
+public class AccountDeleteCardDTO {
     private int accountPhase;
 }
