@@ -4,6 +4,6 @@ import com.bank.onboarding.commonslib.persistence.models.Document;
 
 import java.util.List;
 
-public interface DocumentService {
+public interface DocumentRepoService {
     List<Document> getAllDocuments();
 }

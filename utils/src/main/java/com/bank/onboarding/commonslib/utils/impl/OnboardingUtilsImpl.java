@@ -1,13 +1,7 @@
 package com.bank.onboarding.commonslib.utils.impl;
 
-import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
-import com.bank.onboarding.commonslib.persistence.models.Account;
-import com.bank.onboarding.commonslib.persistence.models.Card;
-import com.bank.onboarding.commonslib.persistence.repositories.AccountRepository;
 import com.bank.onboarding.commonslib.persistence.repositories.CardRepository;
 import com.bank.onboarding.commonslib.utils.OnboardingUtils;
-import com.bank.onboarding.commonslib.utils.mappers.AccountMapper;
-import com.bank.onboarding.commonslib.web.dtos.account.AccountDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,11 +14,6 @@ import static com.bank.onboarding.commonslib.persistence.constants.OnboardingCon
 import static com.bank.onboarding.commonslib.persistence.constants.OnboardingConstants.MINOR_ACCOUNT_TYPES;
 import static com.bank.onboarding.commonslib.persistence.constants.OnboardingConstants.PARTICULAR_ACCOUNT_TYPES;
 import static com.bank.onboarding.commonslib.persistence.constants.OnboardingConstants.STUDENT_ACCOUNT_TYPES;
-import static com.bank.onboarding.commonslib.persistence.enums.CardType.CC;
-import static com.bank.onboarding.commonslib.persistence.enums.CardType.CD;
-import static com.bank.onboarding.commonslib.persistence.enums.CardType.CDD;
-import static com.bank.onboarding.commonslib.persistence.enums.CardType.CDM;
-import static com.bank.onboarding.commonslib.persistence.enums.CardType.CPP;
 
 
 @Service
@@ -32,7 +21,6 @@ import static com.bank.onboarding.commonslib.persistence.enums.CardType.CPP;
 @RequiredArgsConstructor
 public class OnboardingUtilsImpl implements OnboardingUtils {
 
-    private final AccountRepository accountRepository;
     private final CardRepository cardRepository;
 
     @Override
@@ -59,63 +47,5 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
     @Override
     public int calculateAge(LocalDateTime birthDate) {
         return Period.between(birthDate.toLocalDate(), LocalDateTime.now().toLocalDate()).getYears();
-    }
-
-    @Override
-    public AccountDTO saveAccountTypeDB(Account account, String accountType){
-        account.setType(accountType);
-        if(Boolean.TRUE.equals(saveAccountDB(account))) return AccountMapper.INSTANCE.toAccountDTO(account);
-        return null;
-    }
-
-    @Override
-    public Account findAccountDB(String accountNumber) throws OnboardingException {
-        return Optional.ofNullable(accountRepository.findByNumber(accountNumber)).orElseThrow(() ->
-                new OnboardingException("Não foi encontrada nenhuma conta com o número " + accountNumber));
-    }
-
-    @Override
-    public Boolean saveAccountDB(Account account) throws OnboardingException {
-        account.setLastUpdateTime(LocalDateTime.now());
-        if(accountRepository.save(account).getId() != null) return Boolean.TRUE;
-
-        throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
-    }
-
-    @Override
-    public Boolean saveCardDB(Card card) {
-        if(cardRepository.save(card).getId() != null) return Boolean.TRUE;
-
-        throw new OnboardingException("Ocorreu um erro a guardar o cartão na base de dados.");
-    }
-
-    @Override
-    public String getCardTypeValue(String cardType) {
-        String cardTypeValue = "";
-        if(CD.name().equals(cardType)){
-            cardTypeValue = CD.getValue();
-        } else if (CC.name().equals(cardType)) {
-            cardTypeValue = CC.getValue();
-        } else if (CDD.name().equals(cardType)) {
-            cardTypeValue = CDD.getValue();
-        } else if (CPP.name().equals(cardType)) {
-            cardTypeValue = CPP.getValue();
-        } else if (CDM.name().equals(cardType)) {
-            cardTypeValue = CDM.getValue();
-        }
-
-        return cardTypeValue;
-    }
-
-    @Override
-    public Card findCardDB(String cardNumber) throws OnboardingException {
-        return Optional.ofNullable(cardRepository.findByNumber(cardNumber)).orElseThrow(() ->
-                new OnboardingException("Não foi encontrado nenhum cartão com o número " + cardNumber));
-    }
-
-    @Override
-    public Card deleteCardDB(String cardId) {
-        cardRepository.deleteById(cardId);
-        return null;
     }
 }

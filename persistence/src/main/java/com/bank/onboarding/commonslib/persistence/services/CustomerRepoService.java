@@ -4,6 +4,6 @@ import com.bank.onboarding.commonslib.persistence.models.Customer;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerRepoService {
     List<Customer> getAllCustomers();
 }

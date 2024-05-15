@@ -2,7 +2,7 @@ package com.bank.onboarding.commonslib.persistence.services.impl;
 
 import com.bank.onboarding.commonslib.persistence.models.Document;
 import com.bank.onboarding.commonslib.persistence.repositories.DocumentRepository;
-import com.bank.onboarding.commonslib.persistence.services.DocumentService;
+import com.bank.onboarding.commonslib.persistence.services.DocumentRepoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Transactional
 @Service
 @RequiredArgsConstructor
-public class DocumentServiceImpl implements DocumentService {
+public class DocumentRepoServiceImpl implements DocumentRepoService {
 
     private final DocumentRepository documentRepository;
 

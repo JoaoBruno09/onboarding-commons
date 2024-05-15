@@ -4,6 +4,6 @@ import com.bank.onboarding.commonslib.persistence.models.Address;
 
 import java.util.List;
 
-public interface AddressService {
+public interface AddressRepoService {
     List<Address> getAllAddresses();
 }

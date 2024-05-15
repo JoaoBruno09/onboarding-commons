@@ -2,7 +2,7 @@ package com.bank.onboarding.commonslib.persistence.services.impl;
 
 import com.bank.onboarding.commonslib.persistence.models.Address;
 import com.bank.onboarding.commonslib.persistence.repositories.AddressRepository;
-import com.bank.onboarding.commonslib.persistence.services.AddressService;
+import com.bank.onboarding.commonslib.persistence.services.AddressRepoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Transactional
 @Service
 @RequiredArgsConstructor
-public class AddressServiceImpl implements AddressService {
+public class AddressRepoServiceImpl implements AddressRepoService {
 
     private final AddressRepository addressRepository;
 

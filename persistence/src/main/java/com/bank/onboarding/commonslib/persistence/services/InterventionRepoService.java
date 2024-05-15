@@ -4,6 +4,6 @@ import com.bank.onboarding.commonslib.persistence.models.Intervention;
 
 import java.util.List;
 
-public interface InterventionService {
+public interface InterventionRepoService {
     List<Intervention> getAllInterventions();
 }

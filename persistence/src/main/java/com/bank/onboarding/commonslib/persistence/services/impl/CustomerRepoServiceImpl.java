@@ -2,7 +2,7 @@ package com.bank.onboarding.commonslib.persistence.services.impl;
 
 import com.bank.onboarding.commonslib.persistence.models.Customer;
 import com.bank.onboarding.commonslib.persistence.repositories.CustomerRepository;
-import com.bank.onboarding.commonslib.persistence.services.CustomerService;
+import com.bank.onboarding.commonslib.persistence.services.CustomerRepoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Transactional
 @Service
 @RequiredArgsConstructor
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerRepoServiceImpl implements CustomerRepoService {
 
     private final CustomerRepository customerRepository;
 

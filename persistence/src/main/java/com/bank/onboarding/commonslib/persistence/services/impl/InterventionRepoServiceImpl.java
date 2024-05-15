@@ -2,7 +2,7 @@ package com.bank.onboarding.commonslib.persistence.services.impl;
 
 import com.bank.onboarding.commonslib.persistence.models.Intervention;
 import com.bank.onboarding.commonslib.persistence.repositories.InterventionRepository;
-import com.bank.onboarding.commonslib.persistence.services.InterventionService;
+import com.bank.onboarding.commonslib.persistence.services.InterventionRepoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Transactional
 @Service
 @RequiredArgsConstructor
-public class InterventionServiceImpl implements InterventionService {
+public class InterventionRepoServiceImpl implements InterventionRepoService {
 
     private final InterventionRepository interventionRepository;
 
