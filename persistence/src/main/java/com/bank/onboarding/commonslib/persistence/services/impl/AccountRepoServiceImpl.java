@@ -28,22 +28,15 @@ public class AccountRepoServiceImpl implements AccountRepoService {
     }
 
     @Override
-    public Account saveAccountTypeDB(Account account, String accountType){
-        account.setType(accountType);
-        if(Boolean.TRUE.equals(saveAccountDB(account))) return account;
-        return null;
-    }
-
-    @Override
     public Account findAccountDB(String accountNumber) throws OnboardingException {
         return Optional.ofNullable(accountRepository.findByNumber(accountNumber)).orElseThrow(() ->
                 new OnboardingException("Não foi encontrada nenhuma conta com o número " + accountNumber));
     }
 
     @Override
-    public Boolean saveAccountDB(Account account) throws OnboardingException {
+    public Account saveAccountDB(Account account) throws OnboardingException {
         account.setLastUpdateTime(LocalDateTime.now());
-        if(accountRepository.save(account).getId() != null) return Boolean.TRUE;
+        if(accountRepository.save(account).getId() != null) return account;
 
         throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
     }
