@@ -2,7 +2,9 @@ package com.bank.onboarding.commonslib.utils.impl;
 
 import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
 import com.bank.onboarding.commonslib.persistence.models.Account;
+import com.bank.onboarding.commonslib.persistence.models.Card;
 import com.bank.onboarding.commonslib.persistence.repositories.AccountRepository;
+import com.bank.onboarding.commonslib.persistence.repositories.CardRepository;
 import com.bank.onboarding.commonslib.utils.OnboardingUtils;
 import com.bank.onboarding.commonslib.utils.mappers.AccountMapper;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountDTO;
@@ -26,6 +28,7 @@ import static com.bank.onboarding.commonslib.persistence.constants.OnboardingCon
 public class OnboardingUtilsImpl implements OnboardingUtils {
 
     private final AccountRepository accountRepository;
+    private final CardRepository cardRepository;
 
     @Override
     public boolean isEmpresaAccountType(String accountType) {
@@ -72,5 +75,12 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         if(accountRepository.save(account).getId() != null) return Boolean.TRUE;
 
         throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
+    }
+
+    @Override
+    public Boolean saveCardDB(Card card) {
+        if(cardRepository.save(card).getId() != null) return Boolean.TRUE;
+
+        throw new OnboardingException("Ocorreu um erro a guardar o cartão na base de dados.");
     }
 }

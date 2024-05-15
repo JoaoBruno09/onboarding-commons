@@ -1,13 +1,15 @@
 package com.bank.onboarding.commonslib.web.dtos.account;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class AccountCardDTO {
+@Builder
+public class CardDTO {
+    private Double cardAnnualFee;
+    private Integer cardCvc;
+    private String cardNumber;
     private String cardType;
-    private List<String> customerNumber;
 }
