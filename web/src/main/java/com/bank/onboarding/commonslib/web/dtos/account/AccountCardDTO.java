@@ -10,4 +10,5 @@ import java.util.List;
 public class AccountCardDTO {
     private String cardType;
     private List<String> customerNumber;
+    private Integer accountPhase;
 }
