@@ -68,4 +68,11 @@ public class CardRepoServiceImpl implements CardRepoService {
         cardRepository.deleteById(cardId);
         return null;
     }
+
+    @Override
+    public void findAndDeleteCardDB(String customerId, String accountId) {
+        Optional.ofNullable(cardRepository.findByCustomerIdAndAccountId(customerId, accountId)).ifPresent(card -> {
+            cardRepository.deleteById(card.getId());
+        });
+    }
 }

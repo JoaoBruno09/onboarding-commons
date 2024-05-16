@@ -10,4 +10,5 @@ public interface CardRepoService {
     String getCardTypeValue (String cardType);
     Card findCardDB(String cardNumber);
     Card deleteCardDB(String cardNumber);
+    void findAndDeleteCardDB(String customerId, String accountId);
 }
