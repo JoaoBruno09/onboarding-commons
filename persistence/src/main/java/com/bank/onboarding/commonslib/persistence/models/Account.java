@@ -25,6 +25,5 @@ public class Account {
     private String number;
     private Boolean onlineBankingIndicator;
     private Integer phase;
-    private String status;
     private String type;
 }

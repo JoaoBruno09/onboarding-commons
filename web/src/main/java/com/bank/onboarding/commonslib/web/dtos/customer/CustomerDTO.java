@@ -1,12 +1,14 @@
 package com.bank.onboarding.commonslib.web.dtos.customer;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@Builder
 public class CustomerDTO {
     private List<AddressDTO> addresses;
     private String annualIncome;

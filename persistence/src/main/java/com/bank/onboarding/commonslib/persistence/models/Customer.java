@@ -43,7 +43,6 @@ public class Customer {
     private String motherName;
     private String nationality;
     private String number;
-    private Boolean onlineBankingIndicator;
     private String profession;
     private Boolean relationIndicator;
     private String taxIdCountry;

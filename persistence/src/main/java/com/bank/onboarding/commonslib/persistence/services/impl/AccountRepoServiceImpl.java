@@ -35,9 +35,7 @@ public class AccountRepoServiceImpl implements AccountRepoService {
 
     @Override
     public Account saveAccountDB(Account account) throws OnboardingException {
-        account.setLastUpdateTime(LocalDateTime.now());
         if(accountRepository.save(account).getId() != null) return account;
-
         throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
     }
 }

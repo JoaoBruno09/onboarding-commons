@@ -1,5 +1,6 @@
 package com.bank.onboarding.commonslib.persistence.constants;
 
+import com.bank.onboarding.commonslib.persistence.enums.DocumentType;
 import jakarta.annotation.PostConstruct;
 
 import java.util.ArrayList;
@@ -22,6 +23,11 @@ import static com.bank.onboarding.commonslib.persistence.enums.CardType.CD;
 import static com.bank.onboarding.commonslib.persistence.enums.CardType.CDD;
 import static com.bank.onboarding.commonslib.persistence.enums.CardType.CDM;
 import static com.bank.onboarding.commonslib.persistence.enums.CardType.CPP;
+import static com.bank.onboarding.commonslib.persistence.enums.ContactType.EMAIL;
+import static com.bank.onboarding.commonslib.persistence.enums.ContactType.TELEPHONE;
+import static com.bank.onboarding.commonslib.persistence.enums.CustomerType.EMPRESA;
+import static com.bank.onboarding.commonslib.persistence.enums.CustomerType.PARTICULAR;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.BI;
 
 public class OnboardingConstants {
     public static final List<String> PARTICULAR_ACCOUNT_TYPES = List.of(ORDEM.name(),BASE.name(), SMB.name(), POUPANCA.name(), ORDENADO.name());
@@ -31,6 +37,9 @@ public class OnboardingConstants {
     public static final List<String> ACCOUNT_TYPES = new ArrayList<>();
     public static final List<String> CARD_TYPES = List.of(CD.name(), CC.name(), CDD.name(), CPP.name(), CDM.name());
     public static final List<Integer> ACCOUNT_PHASES = List.of(INTYPE.getValue(), RELCARD.getValue(), DOCS.getValue(),TERMINADA.getValue());
+    public static final List<String> CONTACT_TYPES = List.of(TELEPHONE.name(), EMAIL.name());
+    public static final List<String> DOCUMENT_TYPES_CREATE_ACCOUNT_REQUEST = List.of(DocumentType.CC.name(), BI.name());
+    public static final List<String> CUSTOMER_TYPES = List.of(PARTICULAR.name(), EMPRESA.name());
 
     @PostConstruct
     private void addAllAccountTypes(){

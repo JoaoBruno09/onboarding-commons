@@ -12,16 +12,6 @@ import org.mapstruct.factory.Mappers;
 public interface AccountMapper {
     AccountMapper INSTANCE = Mappers.getMapper( AccountMapper.class );
 
-    @Mapping(target="accountCurrencyCode", source="currencyCode")
-    @Mapping(target="accountIban", source="iban")
-    @Mapping(target="accountNumber", source="number")
-    @Mapping(target="accountOnlineBankingIndicator", source="onlineBankingIndicator")
-    @Mapping(target="accountType", source="type")
     AccountDTO toAccountDTO(Account account);
-
-    @Mapping(target="cardAnnualFee", source="annualFee")
-    @Mapping(target="cardCvc", source="cvc")
-    @Mapping(target="cardNumber", source="number")
-    @Mapping(target="cardType", source="type")
     CardDTO toCardDTO(Card card);
 }

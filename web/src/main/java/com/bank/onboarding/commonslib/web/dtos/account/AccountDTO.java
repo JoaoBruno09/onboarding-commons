@@ -9,9 +9,10 @@ import lombok.Data;
 @Builder
 public class AccountDTO {
     private String accountManager;
-    private String accountCurrencyCode;
-    private String accountIban;
-    private String accountNumber;
-    private Boolean accountOnlineBankingIndicator;
-    private String accountType;
+    private String currencyCode;
+    private String iban;
+    private String number;
+    private Boolean onlineBankingIndicator;
+    private Integer phase;
+    private String type;
 }

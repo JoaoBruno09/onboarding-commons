@@ -8,8 +8,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class CardDTO {
-    private double cardAnnualFee;
-    private int cardCvc;
-    private String cardNumber;
-    private String cardType;
+    private double annualFee;
+    private int cvc;
+    private String number;
+    private String type;
 }
