@@ -20,6 +20,8 @@ import static com.bank.onboarding.commonslib.persistence.constants.OnboardingCon
 import static com.bank.onboarding.commonslib.persistence.enums.AccountPhase.DOCS;
 import static com.bank.onboarding.commonslib.persistence.enums.AccountPhase.INTYPE;
 import static com.bank.onboarding.commonslib.persistence.enums.AccountPhase.RELCARD;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.AD;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.TT;
 
 
 @Service
@@ -74,6 +76,23 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         }
 
         return true;
+    }
+
+    @Override
+    public String getInterventionTypeValue(String interventionType) {
+        String interventionTypeToBeReturned = null;
+        if(TT.name().equals(interventionType)){
+            interventionTypeToBeReturned = TT.getValue();
+        } else if (AD.getValue().equals(interventionType)) {
+            interventionTypeToBeReturned = AD.getValue();
+        }
+
+        return interventionTypeToBeReturned;
+    }
+
+    @Override
+    public String getDocumentTypeValue(String documentType) {
+        return null;
     }
 
     private void throwInvalidPhaseForOperationTypeException(){

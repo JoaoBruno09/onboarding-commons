@@ -2,6 +2,7 @@ package com.bank.onboarding.commonslib.persistence.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @org.springframework.data.mongodb.core.mapping.Document(collection = "documents")
 @Data
 @AllArgsConstructor
+@Builder
 public class Document {
     @Id
     private String id;

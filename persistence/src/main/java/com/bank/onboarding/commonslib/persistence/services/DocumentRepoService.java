@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DocumentRepoService {
     List<Document> getAllDocuments();
+    Document saveAccountDB(Document document);
 }

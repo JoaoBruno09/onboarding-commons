@@ -9,10 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 @Transactional
@@ -35,7 +35,11 @@ public class AccountRepoServiceImpl implements AccountRepoService {
 
     @Override
     public Account saveAccountDB(Account account) throws OnboardingException {
-        if(accountRepository.save(account).getId() != null) return account;
-        throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
+        AtomicReference<Account> accountToBeReturned = new AtomicReference<>();
+        Optional.of(accountRepository.save(account)).ifPresentOrElse(accountToBeReturned::set, () -> {
+            throw new OnboardingException("Ocorreu um erro a guardar a conta na base de dados.");
+        } );
+
+        return accountToBeReturned.get();
     }
 }

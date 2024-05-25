@@ -11,4 +11,6 @@ public interface OnboardingUtils {
     boolean isMajorAndUniversityStudentAndAccountTypeIsUNIV(Integer age, String customerProfession, String customerType);
     int calculateAge(LocalDateTime birthDate);
     boolean isValidPhase(Integer requestPhase, OperationType operationType);
+    String getInterventionTypeValue(String interventionType);
+    String getDocumentTypeValue(String documentType);
 }

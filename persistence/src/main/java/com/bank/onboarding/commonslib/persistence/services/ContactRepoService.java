@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ContactRepoService {
     List<Contact> getAllContacts();
+    Contact saveContactDB(Contact contact);
 }

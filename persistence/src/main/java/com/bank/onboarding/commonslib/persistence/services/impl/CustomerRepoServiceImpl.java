@@ -1,5 +1,6 @@
 package com.bank.onboarding.commonslib.persistence.services.impl;
 
+import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
 import com.bank.onboarding.commonslib.persistence.models.Customer;
 import com.bank.onboarding.commonslib.persistence.repositories.CustomerRepository;
 import com.bank.onboarding.commonslib.persistence.services.CustomerRepoService;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 @Transactional
@@ -23,5 +25,15 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     @Override
     public List<Customer> getAllCustomers() {
         return Optional.of(customerRepository.findAll()).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public Customer saveCustomerDB(Customer customer) {
+        AtomicReference<Customer> customerToBeReturned = new AtomicReference<>();
+        Optional.of(customerRepository.save(customer)).ifPresentOrElse(customerToBeReturned::set, () -> {
+            throw new OnboardingException("Ocorreu um erro a guardar o cliente na base de dados.");
+        } );
+
+        return customerToBeReturned.get();
     }
 }
