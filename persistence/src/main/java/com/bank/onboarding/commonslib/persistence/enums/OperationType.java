@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum OperationType {
+    CREATE_ACCOUNT,
     ADD_INTERVENIENT,
     TYPE_ACCOUNT,
     ADD_REL,
