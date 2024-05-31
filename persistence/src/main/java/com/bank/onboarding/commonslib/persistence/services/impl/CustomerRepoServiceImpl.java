@@ -36,4 +36,9 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
 
         return customerToBeReturned.get();
     }
+
+    @Override
+    public Customer getCustomerById(String customerId) {
+        return Optional.of(customerRepository.findById(customerId)).get().orElse(null);
+    }
 }

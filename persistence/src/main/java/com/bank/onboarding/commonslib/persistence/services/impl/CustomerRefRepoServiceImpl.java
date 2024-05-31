@@ -29,4 +29,9 @@ public class CustomerRefRepoServiceImpl implements CustomerRefRepoService {
         Optional.of(customerRefRepository.save(customerRef)).orElseThrow(() ->
                 new OnboardingException("Ocorreu um erro a guardar o cliente na base de dados."));
     }
+
+    @Override
+    public void deleteCustomerById(String customerId) {
+        customerRefRepository.deleteById(customerId);
+    }
 }

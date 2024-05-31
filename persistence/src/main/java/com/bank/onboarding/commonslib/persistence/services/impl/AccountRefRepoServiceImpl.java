@@ -23,4 +23,9 @@ public class AccountRefRepoServiceImpl implements AccountRefRepoService {
         Optional.of(accountRefRepository.save(accountRef)).orElseThrow(() ->
                 new OnboardingException("Ocorreu um erro a guardar a conta na base de dados."));
     }
+
+    @Override
+    public void deleteAccountById(String accountId) {
+        accountRefRepository.deleteById(accountId);
+    }
 }

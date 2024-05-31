@@ -7,4 +7,5 @@ import java.util.List;
 public interface InterventionRepoService {
     List<Intervention> getAllInterventions();
     Intervention saveInterventionDB(Intervention intervention);
+    void findAndDeleteInterventionByAccountId(String accountId);
 }

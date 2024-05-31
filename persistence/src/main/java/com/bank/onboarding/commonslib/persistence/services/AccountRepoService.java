@@ -7,6 +7,7 @@ import java.util.List;
 public interface AccountRepoService {
 
     List<Account> findAccountsDB();
-    Account findAccountDB(String accountNumber);
+    Account getAccountByNumber(String accountNumber);
     Account saveAccountDB(Account account);
+    void deleteAccountById(String accountId);
 }

@@ -5,4 +5,5 @@ import com.bank.onboarding.commonslib.persistence.models.CustomerRef;
 public interface CustomerRefRepoService {
     CustomerRef findCustomerDB(String customerNumber);
     void saveCustomerRefDB(CustomerRef customerRef);
+    void deleteCustomerById(String customerId);
 }

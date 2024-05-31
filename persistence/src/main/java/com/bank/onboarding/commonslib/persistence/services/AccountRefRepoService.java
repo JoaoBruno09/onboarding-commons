@@ -4,4 +4,5 @@ import com.bank.onboarding.commonslib.persistence.models.AccountRef;
 
 public interface AccountRefRepoService {
     void saveAccountRefDB(AccountRef accountRef);
+    void deleteAccountById(String accountId);
 }

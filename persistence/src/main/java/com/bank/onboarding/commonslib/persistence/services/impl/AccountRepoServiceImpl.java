@@ -28,7 +28,7 @@ public class AccountRepoServiceImpl implements AccountRepoService {
     }
 
     @Override
-    public Account findAccountDB(String accountNumber) throws OnboardingException {
+    public Account getAccountByNumber(String accountNumber) throws OnboardingException {
         return Optional.ofNullable(accountRepository.findByNumber(accountNumber)).orElseThrow(() ->
                 new OnboardingException("Não foi encontrada nenhuma conta com o número " + accountNumber));
     }
@@ -41,5 +41,10 @@ public class AccountRepoServiceImpl implements AccountRepoService {
         } );
 
         return accountToBeReturned.get();
+    }
+
+    @Override
+    public void deleteAccountById(String accountId) {
+        accountRepository.deleteById(accountId);
     }
 }

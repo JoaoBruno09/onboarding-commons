@@ -23,4 +23,5 @@ public class Intervention {
     private LocalDateTime lastUpdateTime;
     private String interventionType;
     private String accountId;
+    private String customerId;
 }

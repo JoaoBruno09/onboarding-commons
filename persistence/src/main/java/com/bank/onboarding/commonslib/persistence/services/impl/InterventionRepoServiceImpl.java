@@ -36,4 +36,10 @@ public class InterventionRepoServiceImpl implements InterventionRepoService {
 
         return interventionToBeReturned.get();
     }
+
+    @Override
+    public void findAndDeleteInterventionByAccountId(String accountId) {
+        Optional.ofNullable(interventionRepository.findByAccountId(accountId)).ifPresent(intervention ->
+                interventionRepository.deleteById(intervention.getId()));
+    }
 }
