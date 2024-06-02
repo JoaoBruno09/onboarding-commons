@@ -86,7 +86,7 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
                 if(!Objects.equals(INTYPE.getValue(), requestPhase) ||
                         !Objects.equals(RELCARD.getValue(), requestPhase)) throwInvalidPhaseForOperationTypeException();
             }
-            case DOCS_UPLOAD -> {
+            case DOCS_UPLOAD, DOCS_DELETE -> {
                 if(!Objects.equals(DOCS.getValue(), requestPhase)) throwInvalidPhaseForOperationTypeException();
             }
             default -> {}

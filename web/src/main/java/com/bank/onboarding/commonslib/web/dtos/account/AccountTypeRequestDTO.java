@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 
 @Data
 public class AccountTypeRequestDTO {
-    private boolean accountActive;
-    private String accountType;
-    private int accountPhase;
+    boolean accountActive;
+    String accountType;
+    int accountPhase;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime customerBirthDate;
-    private String customerProfession;
-    private String customerType;
+    LocalDateTime customerBirthDate;
+    String customerProfession;
+    String customerType;
 }

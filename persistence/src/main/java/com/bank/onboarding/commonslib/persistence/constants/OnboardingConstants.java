@@ -30,6 +30,12 @@ import static com.bank.onboarding.commonslib.persistence.enums.ContactType.TELEP
 import static com.bank.onboarding.commonslib.persistence.enums.CustomerType.EMPRESA;
 import static com.bank.onboarding.commonslib.persistence.enums.CustomerType.PARTICULAR;
 import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.BI;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.CM;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.CPEP;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.DI;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.DIF;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.FAC;
+import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.FIN;
 import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.AD;
 import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.TT;
 
@@ -42,7 +48,9 @@ public class OnboardingConstants {
     public static final List<String> CARD_TYPES = List.of(CD.name(), CC.name(), CDD.name(), CPP.name(), CDM.name());
     public static final List<Integer> ACCOUNT_PHASES = List.of(INTYPE.getValue(), RELCARD.getValue(), DOCS.getValue(),TERMINADA.getValue());
     public static final List<String> CONTACT_TYPES = List.of(TELEPHONE.name(), EMAIL.name());
-    public static final List<String> DOCUMENT_TYPES_CREATE_ACCOUNT_REQUEST = List.of(DocumentType.CC.name(), BI.name());
+    public static final List<String> DOCUMENT_TYPES_CREATE_ACCOUNT_REQUEST = List.of(DocumentType.CC.name(), BI.name(), DI.name(), DIF.name());
+    public static final List<String> DOCUMENT_TYPES_PHASE_3_CUSTOMER = List.of(CM.name(), CPEP.name());
+    public static final List<String> DOCUMENT_TYPES_PHASE_3_ACCOUNT = List.of(FAC.name(), FIN.name());
     public static final List<String> CUSTOMER_TYPES = List.of(PARTICULAR.name(), EMPRESA.name());
     public static final List<String> INTERVENTIONS_TYPES = List.of(TT.name(), AD.name());
     public static final Faker faker = new Faker(new Locale("pt"));

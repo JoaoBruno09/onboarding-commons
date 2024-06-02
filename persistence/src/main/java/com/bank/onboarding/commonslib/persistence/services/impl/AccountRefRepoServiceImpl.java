@@ -2,6 +2,7 @@ package com.bank.onboarding.commonslib.persistence.services.impl;
 
 import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
 import com.bank.onboarding.commonslib.persistence.models.AccountRef;
+import com.bank.onboarding.commonslib.persistence.models.CustomerRef;
 import com.bank.onboarding.commonslib.persistence.repositories.AccountRefRepository;
 import com.bank.onboarding.commonslib.persistence.services.AccountRefRepoService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,12 @@ import java.util.Optional;
 public class AccountRefRepoServiceImpl implements AccountRefRepoService {
 
     private final AccountRefRepository accountRefRepository;
+
+    @Override
+    public AccountRef findAccountRefByAccountNumber(String accountNumber) {
+        return accountRefRepository.findByAccountNumber(accountNumber);
+    }
+
     @Override
     public void saveAccountRefDB(AccountRef accountRef) {
         Optional.of(accountRefRepository.save(accountRef)).orElseThrow(() ->

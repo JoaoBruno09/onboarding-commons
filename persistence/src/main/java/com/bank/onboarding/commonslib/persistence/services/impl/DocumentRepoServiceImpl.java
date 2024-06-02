@@ -28,12 +28,24 @@ public class DocumentRepoServiceImpl implements DocumentRepoService {
     }
 
     @Override
-    public Document saveAccountDB(Document document) {
+    public Document saveDocumentDB(Document document) {
         AtomicReference<Document> documentToBeReturned = new AtomicReference<>();
         Optional.of(documentRepository.save(document)).ifPresentOrElse(documentToBeReturned::set, () -> {
             throw new OnboardingException("Ocorreu um erro a guardar o documento na base de dados.");
         } );
 
         return documentToBeReturned.get();
+    }
+
+    @Override
+    public void deleteDocumentByAccountIdOrCustomerId(String id, boolean isAccountDoc) {
+        Document documentToBeDeleted;
+        if(Boolean.TRUE.equals(isAccountDoc)){
+            documentToBeDeleted = documentRepository.findByAccountId(id);
+        }else {
+            documentToBeDeleted = documentRepository.findByCustomerId(id);
+        }
+
+        documentRepository.deleteById(documentToBeDeleted.getId());
     }
 }

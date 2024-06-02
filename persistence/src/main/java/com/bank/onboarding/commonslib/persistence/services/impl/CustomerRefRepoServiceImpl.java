@@ -20,7 +20,7 @@ public class CustomerRefRepoServiceImpl implements CustomerRefRepoService {
     private final CustomerRefRepository customerRefRepository;
 
     @Override
-    public CustomerRef findCustomerDB(String customerNumber) {
+    public CustomerRef findCustomerRefByCustomerNumber(String customerNumber) {
         return customerRefRepository.findByCustomerNumber(customerNumber);
     }
 
