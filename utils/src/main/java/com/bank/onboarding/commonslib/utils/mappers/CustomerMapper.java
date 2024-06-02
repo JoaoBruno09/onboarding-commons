@@ -16,6 +16,8 @@ public interface CustomerMapper {
     @Mapping(target = "id", source = "customerId")
     CustomerRef toCustomerRef(CustomerRefDTO customerRefDTO);
 
+    CustomerRefDTO toCustomerRefDTO(CustomerRef customerRef);
+
     @Mapping(target = "documentId.documentIdCountry", source = "documentIdCountry")
     @Mapping(target = "documentId.documentIdNumber", source = "documentIdNumber")
     @Mapping(target = "documentId.documentIdType", source = "documentIdType")

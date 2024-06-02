@@ -1,15 +1,15 @@
-package com.bank.onboarding.commonslib.utils.kafka;
+package com.bank.onboarding.commonslib.utils.kafka.models;
 
-import com.bank.onboarding.commonslib.persistence.enums.OperationType;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountRefDTO;
+import com.bank.onboarding.commonslib.web.dtos.account.CreateAccountRequestDTO;
 import com.bank.onboarding.commonslib.web.dtos.customer.CustomerRefDTO;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class ErrorEvent {
+public class CreateAccountEvent {
+    CreateAccountRequestDTO createAccountRequestDTO;
     AccountRefDTO accountRefDTO;
     CustomerRefDTO customerRefDTO;
-    OperationType operationType;
 }

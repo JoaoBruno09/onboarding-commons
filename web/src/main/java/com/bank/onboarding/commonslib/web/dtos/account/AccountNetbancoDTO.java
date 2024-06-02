@@ -8,4 +8,5 @@ import lombok.Data;
 public class AccountNetbancoDTO {
     private boolean wantsNetbanco;
     private int accountPhase;
+    private String customerNumber;
 }
