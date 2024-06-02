@@ -18,4 +18,6 @@ public interface AccountMapper {
     CardDTO toCardDTO(Card card);
     @Mapping(target = "id", source = "accountId")
     AccountRef toAccountRef(AccountRefDTO accountRefDTO);
+    @Mapping(target = "accountId", source = "id")
+    AccountRefDTO toAccountRefDTO(AccountRef accountRef);
 }

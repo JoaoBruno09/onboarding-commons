@@ -9,4 +9,5 @@ public interface CustomerRepoService {
     Customer saveCustomerDB(Customer customer);
     Customer getCustomerById(String customerId);
     Customer getCustomerByNumber(String customerNumber);
+    void deleteCustomerById(String customerId);
 }

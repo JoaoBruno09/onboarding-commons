@@ -46,4 +46,9 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     public Customer getCustomerByNumber(String customerNumber) {
         return Optional.of(customerRepository.findByNumber(customerNumber)).orElse(null);
     }
+
+    @Override
+    public void deleteCustomerById(String customerId) {
+        customerRepository.deleteById(customerId);
+    }
 }
