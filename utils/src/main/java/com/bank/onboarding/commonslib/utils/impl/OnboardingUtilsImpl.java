@@ -133,7 +133,8 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
 
     @Override
     public void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType) {
-        kafkaProducer.sendEvent(topicName, null, ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build());
+        if (OperationType.CREATE_ACCOUNT.equals(operationType))
+            kafkaProducer.sendEvent(topicName, null, ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build());
     }
 
     private void throwInvalidPhaseForOperationTypeException(){

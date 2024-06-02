@@ -8,4 +8,5 @@ public interface CustomerRepoService {
     List<Customer> getAllCustomers();
     Customer saveCustomerDB(Customer customer);
     Customer getCustomerById(String customerId);
+    Customer getCustomerByNumber(String customerNumber);
 }
