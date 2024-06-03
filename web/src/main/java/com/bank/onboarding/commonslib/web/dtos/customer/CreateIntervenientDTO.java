@@ -8,7 +8,8 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class CreateIntervenientDTO {
-    IntervenientRequestDTO intervenientRequestDTO;
+    String customerNumber;
+    IntervenientRequestDTO intervenient;
     int accountPhase;
     String accountNumber;
 }
