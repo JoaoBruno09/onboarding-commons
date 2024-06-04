@@ -1,6 +1,7 @@
 package com.bank.onboarding.commonslib.utils;
 
 import com.bank.onboarding.commonslib.persistence.enums.OperationType;
+import com.bank.onboarding.commonslib.persistence.models.AccountRef;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountRefDTO;
 import com.bank.onboarding.commonslib.web.dtos.customer.CustomerRefDTO;
 
@@ -16,4 +17,5 @@ public interface OnboardingUtils {
     String getInterventionTypeValue(String interventionType);
     String getDocumentTypeValue(String documentType);
     void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType);
+    AccountRef verifyIfAccountExists(String accountNumber);
 }

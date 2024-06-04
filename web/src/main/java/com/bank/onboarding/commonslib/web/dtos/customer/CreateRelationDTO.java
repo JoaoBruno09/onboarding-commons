@@ -7,9 +7,10 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class CreateIntervenientDTO {
-    String customerNumber;
-    CustomerRequestDTO intervenient;
+public class CreateRelationDTO {
+    String childCustomerNumber;
+    String parentCustomerNumber;
+    CustomerRequestDTO parentCustomer;
     int accountPhase;
     String accountNumber;
 }

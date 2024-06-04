@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
-public class IntervenientRequestDTO {
+public class CustomerRequestDTO {
     LocalDateTime customerBirthDate;
     ContactDTO customerContact;
     DocumentIdDTO customerDocId;
@@ -19,5 +19,6 @@ public class IntervenientRequestDTO {
     String customerLastName;
     String customerType;
     String customerInterventionType;
+    String customerRelationType;
     List<CustomerDocumentsRequest> customerDocuments;
 }

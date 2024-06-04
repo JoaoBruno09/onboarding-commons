@@ -2,10 +2,11 @@ package com.bank.onboarding.commonslib.utils.impl;
 
 import com.bank.onboarding.commonslib.persistence.enums.OperationType;
 import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
+import com.bank.onboarding.commonslib.persistence.models.AccountRef;
 import com.bank.onboarding.commonslib.persistence.services.AccountRefRepoService;
 import com.bank.onboarding.commonslib.utils.OnboardingUtils;
-import com.bank.onboarding.commonslib.utils.kafka.models.ErrorEvent;
 import com.bank.onboarding.commonslib.utils.kafka.KafkaProducer;
+import com.bank.onboarding.commonslib.utils.kafka.models.ErrorEvent;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountRefDTO;
 import com.bank.onboarding.commonslib.web.dtos.customer.CustomerRefDTO;
 import lombok.RequiredArgsConstructor;
@@ -135,6 +136,14 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
     public void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType) {
         if (OperationType.CREATE_ACCOUNT.equals(operationType))
             kafkaProducer.sendEvent(topicName, null, ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build());
+    }
+
+    @Override
+    public AccountRef verifyIfAccountExists(String accountNumber) {
+        AccountRef accountRef = accountRefRepoService.findAccountRefByAccountNumber(accountNumber);
+        if(accountRef.getId() == null) throw new OnboardingException("O número da conta que inseriu não existe!");
+
+        return accountRef;
     }
 
     private void throwInvalidPhaseForOperationTypeException(){
