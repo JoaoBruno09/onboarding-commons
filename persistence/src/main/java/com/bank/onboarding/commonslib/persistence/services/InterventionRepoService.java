@@ -8,4 +8,6 @@ public interface InterventionRepoService {
     List<Intervention> getAllInterventionsByCustomerId(String customerId);
     Intervention saveInterventionDB(Intervention intervention);
     void findAndDeleteInterventionByAccountId(String accountId);
+    Intervention getInterventionByInterventionId(String interventionId);
+    void deleteIntervention(Intervention intervention);
 }

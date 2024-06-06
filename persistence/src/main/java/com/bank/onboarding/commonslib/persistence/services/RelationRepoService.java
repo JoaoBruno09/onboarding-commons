@@ -7,4 +7,6 @@ import java.util.List;
 public interface RelationRepoService {
     List<Relation> getAllRelationsByCustomerId(String customerId);
     void saveRelationDB(Relation relation);
+    Relation getRelationByRelationId(String relationId);
+    void deleteRelation(Relation relation);
 }

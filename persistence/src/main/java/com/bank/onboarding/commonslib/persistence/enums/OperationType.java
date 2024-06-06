@@ -6,8 +6,10 @@ import lombok.Getter;
 public enum OperationType {
     CREATE_ACCOUNT,
     ADD_INTERVENIENT,
+    DELETE_INTERVENIENT,
     TYPE_ACCOUNT,
     ADD_REL,
+    DELETE_REL,
     CARD_ACCOUNT,
     NETBANCO_ACCOUNT,
     DOCS_UPLOAD,

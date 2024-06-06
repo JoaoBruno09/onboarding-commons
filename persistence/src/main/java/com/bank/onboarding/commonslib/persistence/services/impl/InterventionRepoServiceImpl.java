@@ -42,4 +42,14 @@ public class InterventionRepoServiceImpl implements InterventionRepoService {
         Optional.ofNullable(interventionRepository.findByAccountId(accountId)).ifPresent(intervention ->
                 interventionRepository.deleteById(intervention.getId()));
     }
+
+    @Override
+    public Intervention getInterventionByInterventionId(String interventionId) {
+        return Optional.of(interventionRepository.findById(interventionId)).get().orElse(null);
+    }
+
+    @Override
+    public void deleteIntervention(Intervention intervention) {
+        interventionRepository.delete(intervention);
+    }
 }

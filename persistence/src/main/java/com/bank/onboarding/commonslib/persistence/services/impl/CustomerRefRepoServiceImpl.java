@@ -25,6 +25,11 @@ public class CustomerRefRepoServiceImpl implements CustomerRefRepoService {
     }
 
     @Override
+    public CustomerRef findCustomerRefByCustomerId(String customerId) {
+        return Optional.of(customerRefRepository.findById(customerId)).get().orElse(null);
+    }
+
+    @Override
     public void saveCustomerRefDB(CustomerRef customerRef) {
         Optional.of(customerRefRepository.save(customerRef)).orElseThrow(() ->
                 new OnboardingException("Ocorreu um erro a guardar o cliente na base de dados."));

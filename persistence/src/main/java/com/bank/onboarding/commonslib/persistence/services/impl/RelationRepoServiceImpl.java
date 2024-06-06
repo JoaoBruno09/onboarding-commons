@@ -29,4 +29,14 @@ public class RelationRepoServiceImpl implements RelationRepoService {
     public void saveRelationDB(Relation relation) {
         relationRepository.save(relation);
     }
+
+    @Override
+    public Relation getRelationByRelationId(String relationId) {
+        return Optional.of(relationRepository.findById(relationId)).get().orElse(null);
+    }
+
+    @Override
+    public void deleteRelation(Relation relation) {
+        relationRepository.delete(relation);
+    }
 }
