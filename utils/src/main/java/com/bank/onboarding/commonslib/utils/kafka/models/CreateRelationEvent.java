@@ -12,6 +12,7 @@ import lombok.Data;
 @Builder
 public class CreateRelationEvent {
     CreateRelationDTO createRelationDTO;
+    boolean newCustomer;
     CustomerRefDTO customerRefDTO;
     AccountRefDTO accountRefDTO;
 }

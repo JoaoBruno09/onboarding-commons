@@ -12,4 +12,5 @@ public class ErrorEvent {
     AccountRefDTO accountRefDTO;
     CustomerRefDTO customerRefDTO;
     OperationType operationType;
+    Boolean isNewCustomer;
 }

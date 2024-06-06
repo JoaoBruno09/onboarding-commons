@@ -9,7 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CreateRelationDTO {
     String childCustomerNumber;
-    String parentCustomerNumber;
     CustomerRequestDTO parentCustomer;
     int accountPhase;
     String accountNumber;

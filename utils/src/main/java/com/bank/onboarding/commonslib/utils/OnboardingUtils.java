@@ -17,5 +17,7 @@ public interface OnboardingUtils {
     String getInterventionTypeValue(String interventionType);
     String getDocumentTypeValue(String documentType);
     void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType);
+    void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType, Boolean isNewCustomer);
     AccountRef verifyIfAccountExists(String accountNumber);
+    String getRelationTypeValue(String relationType);
 }

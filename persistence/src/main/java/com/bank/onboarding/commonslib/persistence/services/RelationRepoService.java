@@ -5,5 +5,6 @@ import com.bank.onboarding.commonslib.persistence.models.Relation;
 import java.util.List;
 
 public interface RelationRepoService {
-    List<Relation> getAllRelations();
+    List<Relation> getAllRelationsByCustomerId(String customerId);
+    void saveRelationDB(Relation relation);
 }

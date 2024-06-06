@@ -23,8 +23,8 @@ public class InterventionRepoServiceImpl implements InterventionRepoService {
     private final InterventionRepository interventionRepository;
 
     @Override
-    public List<Intervention> getAllInterventions() {
-        return Optional.of(interventionRepository.findAll()).orElse(Collections.emptyList());
+    public List<Intervention> getAllInterventionsByCustomerId(String customerId) {
+        return Optional.of(interventionRepository.findAllByCustomerId(customerId)).orElse(Collections.emptyList());
     }
 
     @Override

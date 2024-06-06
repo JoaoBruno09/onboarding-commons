@@ -12,6 +12,7 @@ import lombok.Data;
 @Builder
 public class CreateIntervenientEvent {
     CreateIntervenientDTO createIntervenientDTO;
+    boolean newCustomer;
     CustomerRefDTO customerRefDTO;
     AccountRefDTO accountRefDTO;
 }

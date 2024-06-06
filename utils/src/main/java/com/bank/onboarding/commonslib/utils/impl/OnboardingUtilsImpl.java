@@ -1,6 +1,7 @@
 package com.bank.onboarding.commonslib.utils.impl;
 
 import com.bank.onboarding.commonslib.persistence.enums.OperationType;
+import com.bank.onboarding.commonslib.persistence.enums.RelationType;
 import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
 import com.bank.onboarding.commonslib.persistence.models.AccountRef;
 import com.bank.onboarding.commonslib.persistence.services.AccountRefRepoService;
@@ -134,8 +135,14 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
 
     @Override
     public void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType) {
-        if (OperationType.CREATE_ACCOUNT.equals(operationType))
-            kafkaProducer.sendEvent(topicName, null, ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build());
+        sendErrorEvent(topicName, accountRefDTO, customerRefDTO, operationType, null);
+    }
+
+    @Override
+    public void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType, Boolean isNewCustomer) {
+        ErrorEvent errorEvent = ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build();
+        if (isNewCustomer != null) errorEvent.setIsNewCustomer(isNewCustomer);
+        kafkaProducer.sendEvent(topicName, null, errorEvent);
     }
 
     @Override
@@ -144,6 +151,30 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         if(accountRef.getId() == null) throw new OnboardingException("O número da conta que inseriu não existe!");
 
         return accountRef;
+    }
+
+    @Override
+    public String getRelationTypeValue(String relationType) {
+        String relationTypeToBeReturned = null;
+        if(RelationType.TT.name().equals(relationType)){
+            relationTypeToBeReturned = RelationType.TT.getValue();
+        } else if (RelationType.PG.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.PG.getValue();
+        } else if (RelationType.PC.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.PC.getValue();
+        }else if (RelationType.AD.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.AD.getValue();
+        }else if (RelationType.G.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.G.getValue();
+        }else if (RelationType.D.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.D.getValue();
+        }else if (RelationType.CC.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.CC.getValue();
+        }else if (RelationType.SG.name().equals(relationType)) {
+            relationTypeToBeReturned = RelationType.SG.getValue();
+        }
+
+        return relationTypeToBeReturned;
     }
 
     private void throwInvalidPhaseForOperationTypeException(){
