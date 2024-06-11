@@ -4,6 +4,7 @@ import com.bank.onboarding.commonslib.persistence.enums.OperationType;
 import com.bank.onboarding.commonslib.persistence.models.AccountRef;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountRefDTO;
 import com.bank.onboarding.commonslib.web.dtos.customer.CustomerRefDTO;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDateTime;
 
@@ -20,4 +21,5 @@ public interface OnboardingUtils {
     void sendErrorEvent(String topicName, AccountRefDTO accountRefDTO, CustomerRefDTO customerRefDTO, OperationType operationType, Boolean isNewCustomer);
     AccountRef verifyIfAccountExists(String accountNumber);
     String getRelationTypeValue(String relationType);
+    ResponseEntity<?> buildResponseEntity(String httpMethod, String message);
 }

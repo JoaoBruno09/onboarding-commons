@@ -8,9 +8,15 @@ import com.bank.onboarding.commonslib.persistence.services.AccountRefRepoService
 import com.bank.onboarding.commonslib.utils.OnboardingUtils;
 import com.bank.onboarding.commonslib.utils.kafka.KafkaProducer;
 import com.bank.onboarding.commonslib.utils.kafka.models.ErrorEvent;
+import com.bank.onboarding.commonslib.web.dtos.ErrorResponseDTO;
 import com.bank.onboarding.commonslib.web.dtos.account.AccountRefDTO;
 import com.bank.onboarding.commonslib.web.dtos.customer.CustomerRefDTO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -175,6 +181,21 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         }
 
         return relationTypeToBeReturned;
+    }
+
+    @Override
+    public ResponseEntity<?> buildResponseEntity(String httpMethod, String message) {
+        ErrorResponseDTO errorResponseDTO = ErrorResponseDTO.builder()
+                .httpMethod(httpMethod)
+                .httpResponseStatus(HttpStatus.BAD_REQUEST.value())
+                .errorMessage(message)
+                .build();
+
+        try {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON).body(new ObjectMapper().writeValueAsString(errorResponseDTO));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void throwInvalidPhaseForOperationTypeException(){
