@@ -37,6 +37,7 @@ public class Customer {
     private String firstName;
     private String gender;
     private Boolean intervenientIndicator;
+    private Boolean isValid;
     private String lastName;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime lastUpdateTime;
