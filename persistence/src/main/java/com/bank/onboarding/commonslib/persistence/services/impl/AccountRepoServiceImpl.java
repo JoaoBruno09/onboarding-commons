@@ -47,4 +47,10 @@ public class AccountRepoServiceImpl implements AccountRepoService {
     public void deleteAccountById(String accountId) {
         accountRepository.deleteById(accountId);
     }
+
+    @Override
+    public Account getAccountById(String accountId) {
+        return Optional.of(accountRepository.findById(accountId)).get().orElseThrow(() ->
+                new OnboardingException("Não foi encontrada nenhuma conta"));
+    }
 }

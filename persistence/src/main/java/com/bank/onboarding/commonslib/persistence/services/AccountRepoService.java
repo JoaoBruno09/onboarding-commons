@@ -10,4 +10,5 @@ public interface AccountRepoService {
     Account getAccountByNumber(String accountNumber);
     Account saveAccountDB(Account account);
     void deleteAccountById(String accountId);
+    Account getAccountById(String accountId);
 }
