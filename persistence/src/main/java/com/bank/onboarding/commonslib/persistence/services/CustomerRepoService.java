@@ -10,4 +10,5 @@ public interface CustomerRepoService {
     Customer getCustomerById(String customerId);
     Customer getCustomerByNumber(String customerNumber);
     void deleteCustomerById(String customerId);
+    List<Customer> getCustomersByAccountId(String accountId);
 }

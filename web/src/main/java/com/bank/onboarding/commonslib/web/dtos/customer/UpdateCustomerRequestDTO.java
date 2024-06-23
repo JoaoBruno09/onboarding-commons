@@ -47,4 +47,6 @@ public class UpdateCustomerRequestDTO {
     private TaxIdDTO taxId;
     @NotNull
     private int accountPhase;
+    @NotEmpty
+    private String accountNumber;
 }

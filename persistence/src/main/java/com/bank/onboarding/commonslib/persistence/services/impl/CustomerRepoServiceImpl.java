@@ -51,4 +51,9 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     public void deleteCustomerById(String customerId) {
         customerRepository.deleteById(customerId);
     }
+
+    @Override
+    public List<Customer> getCustomersByAccountId(String accountId) {
+        return Optional.ofNullable(customerRepository.findAllByAccountsAccountId(accountId)).orElse(Collections.emptyList());
+    }
 }
