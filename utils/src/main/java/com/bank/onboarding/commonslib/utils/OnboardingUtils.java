@@ -22,4 +22,6 @@ public interface OnboardingUtils {
     AccountRef verifyIfAccountExists(String accountNumber);
     String getRelationTypeValue(String relationType);
     ResponseEntity<?> buildResponseEntity(String httpMethod, String message);
+
+    void throwInvalidPhaseForOperationTypeException();
 }

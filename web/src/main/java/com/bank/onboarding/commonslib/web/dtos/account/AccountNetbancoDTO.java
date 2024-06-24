@@ -1,6 +1,7 @@
 package com.bank.onboarding.commonslib.web.dtos.account;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +9,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class AccountNetbancoDTO {
-    @NotNull
+    @NotEmpty
     private boolean wantsNetbanco;
-    @NotNull
+    @NotEmpty
     private int accountPhase;
-    @NotNull
-    @NotBlank
+    @NotEmpty
     private String customerNumber;
 }

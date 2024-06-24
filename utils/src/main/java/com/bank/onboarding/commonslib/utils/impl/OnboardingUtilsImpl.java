@@ -198,7 +198,7 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         }
     }
 
-    private void throwInvalidPhaseForOperationTypeException(){
+    public void throwInvalidPhaseForOperationTypeException(){
         throw new OnboardingException("Não é possível efetuar esta operação porque fase introduzida é inválida");
     }
 }
