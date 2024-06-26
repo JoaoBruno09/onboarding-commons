@@ -5,10 +5,9 @@ import com.bank.onboarding.commonslib.persistence.models.Account;
 import java.util.List;
 
 public interface AccountRepoService {
-
-    List<Account> findAccountsDB();
     Account getAccountByNumber(String accountNumber);
     Account saveAccountDB(Account account);
-    void deleteAccountById(String accountId);
+    void deleteAccountByAccountNumber(String accountNumber);
     Account getAccountById(String accountId);
+    List<Account> getAccountsByIBAN(String iban);
 }

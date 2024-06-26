@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CustomerRepository extends MongoRepository<Customer, String> {
     Customer findByNumber(String customerNumber);
-    List<Customer> findAllByAccountsAccountId(String accountId);
+    List<Customer> findAllByAccountsAccountNumber(String accountNumber);
+    void deleteByNumber(String customerNumber);
 }

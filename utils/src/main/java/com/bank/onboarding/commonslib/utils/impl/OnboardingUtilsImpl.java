@@ -3,8 +3,6 @@ package com.bank.onboarding.commonslib.utils.impl;
 import com.bank.onboarding.commonslib.persistence.enums.OperationType;
 import com.bank.onboarding.commonslib.persistence.enums.RelationType;
 import com.bank.onboarding.commonslib.persistence.exceptions.OnboardingException;
-import com.bank.onboarding.commonslib.persistence.models.AccountRef;
-import com.bank.onboarding.commonslib.persistence.services.AccountRefRepoService;
 import com.bank.onboarding.commonslib.utils.OnboardingUtils;
 import com.bank.onboarding.commonslib.utils.kafka.KafkaProducer;
 import com.bank.onboarding.commonslib.utils.kafka.models.ErrorEvent;
@@ -51,7 +49,6 @@ import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.
 public class OnboardingUtilsImpl implements OnboardingUtils {
 
     private final KafkaProducer kafkaProducer;
-    private final AccountRefRepoService accountRefRepoService;
 
     @Override
     public boolean isEmpresaAccountType(String accountType) {
@@ -149,14 +146,6 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
         ErrorEvent errorEvent = ErrorEvent.builder().accountRefDTO(accountRefDTO).customerRefDTO(customerRefDTO).operationType(operationType).build();
         if (isNewCustomer != null) errorEvent.setIsNewCustomer(isNewCustomer);
         kafkaProducer.sendEvent(topicName, null, errorEvent);
-    }
-
-    @Override
-    public AccountRef verifyIfAccountExists(String accountNumber) {
-        AccountRef accountRef = accountRefRepoService.findAccountRefByAccountNumber(accountNumber);
-        if(accountRef.getId() == null) throw new OnboardingException("O número da conta que inseriu não existe!");
-
-        return accountRef;
     }
 
     @Override

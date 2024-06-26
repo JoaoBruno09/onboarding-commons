@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface InterventionRepository extends MongoRepository<Intervention, String> {
-    List<Intervention> findAllByCustomerId (String customerId);
-    Intervention findByAccountId(String accountId);
+    List<Intervention> findAllByCustomerNumber (String customerNumber);
+    Intervention findByAccountNumber(String accountNumber);
 }

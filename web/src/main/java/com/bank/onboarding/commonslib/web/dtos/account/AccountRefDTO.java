@@ -7,6 +7,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Builder
 public class AccountRefDTO {
-    private String accountId;
     private String accountNumber;
 }

@@ -13,9 +13,7 @@ public interface CustomerMapper {
 
     CustomerMapper INSTANCE = Mappers.getMapper( CustomerMapper.class );
 
-    @Mapping(target = "id", source = "customerId")
     CustomerRef toCustomerRef(CustomerRefDTO customerRefDTO);
-
     CustomerRefDTO toCustomerRefDTO(CustomerRef customerRef);
 
     @Mapping(target = "documentId.documentIdCountry", source = "documentIdCountry")

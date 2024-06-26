@@ -23,8 +23,8 @@ public class InterventionRepoServiceImpl implements InterventionRepoService {
     private final InterventionRepository interventionRepository;
 
     @Override
-    public List<Intervention> getAllInterventionsByCustomerId(String customerId) {
-        return Optional.of(interventionRepository.findAllByCustomerId(customerId)).orElse(Collections.emptyList());
+    public List<Intervention> getAllInterventionsByCustomerNumber(String customerNumber) {
+        return Optional.of(interventionRepository.findAllByCustomerNumber(customerNumber)).orElse(Collections.emptyList());
     }
 
     @Override
@@ -38,8 +38,8 @@ public class InterventionRepoServiceImpl implements InterventionRepoService {
     }
 
     @Override
-    public void findAndDeleteInterventionByAccountId(String accountId) {
-        Optional.ofNullable(interventionRepository.findByAccountId(accountId)).ifPresent(intervention ->
+    public void findAndDeleteInterventionByAccountNumber(String accountNumber) {
+        Optional.ofNullable(interventionRepository.findByAccountNumber(accountNumber)).ifPresent(intervention ->
                 interventionRepository.deleteById(intervention.getId()));
     }
 

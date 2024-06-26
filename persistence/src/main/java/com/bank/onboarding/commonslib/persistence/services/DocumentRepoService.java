@@ -7,7 +7,7 @@ import java.util.List;
 public interface DocumentRepoService {
     List<Document> getAllDocuments();
     Document saveDocumentDB(Document document);
-    void deleteDocumentByAccountIdOrCustomerId(String id, boolean isAccountDoc);
-    List<Document> getAllDocumentsByAccountId(String accountId);
-    List<Document> getAllDocumentsByCustomerId(String customerId);
+    void deleteDocumentByAccountNumberOrCustomerNumber(String id, boolean isAccountDoc);
+    List<Document> getAllDocumentsByAccountNumber(String accountNumber);
+    List<Document> getAllDocumentsByCustomerNumber(String customerNumber);
 }

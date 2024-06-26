@@ -23,11 +23,6 @@ public class AccountRepoServiceImpl implements AccountRepoService {
     private final AccountRepository accountRepository;
 
     @Override
-    public List<Account> findAccountsDB() {
-        return Optional.of(accountRepository.findAll()).orElse(Collections.emptyList());
-    }
-
-    @Override
     public Account getAccountByNumber(String accountNumber) throws OnboardingException {
         return Optional.ofNullable(accountRepository.findByNumber(accountNumber)).orElseThrow(() ->
                 new OnboardingException("Não foi encontrada nenhuma conta com o número " + accountNumber));
@@ -44,13 +39,18 @@ public class AccountRepoServiceImpl implements AccountRepoService {
     }
 
     @Override
-    public void deleteAccountById(String accountId) {
-        accountRepository.deleteById(accountId);
+    public void deleteAccountByAccountNumber(String accountNumber) {
+        accountRepository.deleteByNumber(accountNumber);
     }
 
     @Override
     public Account getAccountById(String accountId) {
         return Optional.of(accountRepository.findById(accountId)).get().orElseThrow(() ->
                 new OnboardingException("Não foi encontrada nenhuma conta"));
+    }
+
+    @Override
+    public List<Account> getAccountsByIBAN(String iban) {
+        return Optional.ofNullable(accountRepository.findAllByIban(iban)).orElse(Collections.emptyList());
     }
 }

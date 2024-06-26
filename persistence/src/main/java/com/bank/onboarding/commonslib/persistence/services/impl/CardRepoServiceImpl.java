@@ -28,8 +28,8 @@ public class CardRepoServiceImpl implements CardRepoService {
     private final CardRepository cardRepository;
 
     @Override
-    public List<Card> getAllCards() {
-        return Optional.of(cardRepository.findAll()).orElse(Collections.emptyList());
+    public List<Card> getAllCardsByAccountId(String accountId) {
+        return Optional.of(cardRepository.findAllByAccountId(accountId)).orElse(Collections.emptyList());
     }
 
     @Override
@@ -70,9 +70,8 @@ public class CardRepoServiceImpl implements CardRepoService {
     }
 
     @Override
-    public void findAndDeleteCardDB(String customerId, String accountId) {
-        Optional.ofNullable(cardRepository.findByCustomerIdAndAccountId(customerId, accountId)).ifPresent(card -> {
-            cardRepository.deleteById(card.getId());
-        });
+    public void findAndDeleteCardDB(String customerNumber, String accountId) {
+        Optional.ofNullable(cardRepository.findByCustomerNumberAndAccountId(customerNumber, accountId)).ifPresent(card ->
+                cardRepository.deleteById(card.getId()));
     }
 }

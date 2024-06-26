@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @Builder
 public class AccountIdentifier {
-    private String accountId;
+    private String accountNumber;
 }

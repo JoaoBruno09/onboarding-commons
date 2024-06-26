@@ -21,8 +21,8 @@ public class RelationRepoServiceImpl implements RelationRepoService {
     private final RelationRepository relationRepository;
 
     @Override
-    public List<Relation> getAllRelationsByCustomerId(String customerId) {
-        return Optional.of(relationRepository.findAllByFatherId(customerId)).orElse(Collections.emptyList());
+    public List<Relation> getAllRelationsByCustomerNumber(String customerNumber) {
+        return Optional.of(relationRepository.findAllByFatherCustomerNumber(customerNumber)).orElse(Collections.emptyList());
     }
 
     @Override

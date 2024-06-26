@@ -18,5 +18,5 @@ public class Card {
     private String number;
     private String type;
     private String accountId;
-    private String customerId;
+    private String customerNumber;
 }

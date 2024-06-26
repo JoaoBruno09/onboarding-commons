@@ -1,11 +1,13 @@
 package com.bank.onboarding.commonslib.utils.impl;
 
 import com.bank.onboarding.commonslib.utils.AsyncExecutor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+@Component
 public class AsyncExecutorImpl implements AsyncExecutor {
     @Override
     public void execute(List<CompletableFuture<?>> cfs) {

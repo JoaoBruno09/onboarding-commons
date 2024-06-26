@@ -9,8 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -23,11 +21,6 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     private final CustomerRepository customerRepository;
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return Optional.of(customerRepository.findAll()).orElse(Collections.emptyList());
-    }
-
-    @Override
     public Customer saveCustomerDB(Customer customer) {
         AtomicReference<Customer> customerToBeReturned = new AtomicReference<>();
         Optional.of(customerRepository.save(customer)).ifPresentOrElse(customerToBeReturned::set, () -> {
@@ -38,22 +31,12 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     }
 
     @Override
-    public Customer getCustomerById(String customerId) {
-        return Optional.of(customerRepository.findById(customerId)).get().orElse(null);
-    }
-
-    @Override
     public Customer getCustomerByNumber(String customerNumber) {
         return Optional.of(customerRepository.findByNumber(customerNumber)).orElse(null);
     }
 
     @Override
-    public void deleteCustomerById(String customerId) {
-        customerRepository.deleteById(customerId);
-    }
-
-    @Override
-    public List<Customer> getCustomersByAccountId(String accountId) {
-        return Optional.ofNullable(customerRepository.findAllByAccountsAccountId(accountId)).orElse(Collections.emptyList());
+    public void deleteCustomerByNumber(String customerNumber) {
+        customerRepository.deleteByNumber(customerNumber);
     }
 }

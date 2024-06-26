@@ -38,24 +38,24 @@ public class DocumentRepoServiceImpl implements DocumentRepoService {
     }
 
     @Override
-    public void deleteDocumentByAccountIdOrCustomerId(String id, boolean isAccountDoc) {
+    public void deleteDocumentByAccountNumberOrCustomerNumber(String id, boolean isAccountDoc) {
         Document documentToBeDeleted;
         if(Boolean.TRUE.equals(isAccountDoc)){
-            documentToBeDeleted = documentRepository.findByAccountId(id);
+            documentToBeDeleted = documentRepository.findByAccountNumber(id);
         }else {
-            documentToBeDeleted = documentRepository.findByCustomerId(id);
+            documentToBeDeleted = documentRepository.findByCustomerNumber(id);
         }
 
         documentRepository.deleteById(documentToBeDeleted.getId());
     }
 
     @Override
-    public List<Document> getAllDocumentsByAccountId(String accountId) {
-        return Optional.of(documentRepository.findAllByAccountId(accountId)).orElse(Collections.emptyList());
+    public List<Document> getAllDocumentsByAccountNumber(String accountNumber) {
+        return Optional.of(documentRepository.findAllByAccountNumber(accountNumber)).orElse(Collections.emptyList());
     }
 
     @Override
-    public List<Document> getAllDocumentsByCustomerId(String customerId) {
-        return Optional.of(documentRepository.findAllByCustomerId(customerId)).orElse(Collections.emptyList());
+    public List<Document> getAllDocumentsByCustomerNumber(String customerNumber) {
+        return Optional.of(documentRepository.findAllByCustomerNumber(customerNumber)).orElse(Collections.emptyList());
     }
 }

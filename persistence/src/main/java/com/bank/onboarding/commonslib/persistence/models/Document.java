@@ -20,7 +20,6 @@ public class Document {
     private String documentBase64;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime uploadedTime;
-    private String accountId;
-    private String customerId;
-
+    private String accountNumber;
+    private String customerNumber;
 }

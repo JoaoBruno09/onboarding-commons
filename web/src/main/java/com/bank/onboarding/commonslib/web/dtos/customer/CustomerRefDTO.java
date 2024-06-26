@@ -1,13 +1,15 @@
 package com.bank.onboarding.commonslib.web.dtos.customer;
 
+import com.bank.onboarding.commonslib.persistence.models.identifiers.AccountIdentifier;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import java.util.List;
 
 @Data
 @Builder
 public class CustomerRefDTO {
-    @Id
-    private String customerId;
     private String customerNumber;
+    private Boolean isValid;
+    private List<AccountIdentifier> accounts;
 }
