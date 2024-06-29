@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -38,5 +40,10 @@ public class CustomerRepoServiceImpl implements CustomerRepoService {
     @Override
     public void deleteCustomerByNumber(String customerNumber) {
         customerRepository.deleteByNumber(customerNumber);
+    }
+
+    @Override
+    public List<Customer> getCustomersByNumber(String customerNumber) {
+        return Optional.ofNullable(customerRepository.findAllByNumber(customerNumber)).orElse(Collections.emptyList());
     }
 }
