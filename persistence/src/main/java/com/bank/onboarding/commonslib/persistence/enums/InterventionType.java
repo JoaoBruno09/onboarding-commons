@@ -7,7 +7,18 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum InterventionType {
     TT("Titular"),
-    AD("Administrador");
+    PRL("Progenitor/Representante Legal"),
+    TTR("Tutor"),
+    CR("Curador"),
+    AB("Administrador de Bens"),
+    AI("Administrador de Insolvência"),
+    CC("Cabeça de Casal"),
+    DR("Director"),
+    SG("Sócio-Gerente"),
+    AD("Administrador"),
+    G("Gerente"),
+    A("Autorizado"),
+    PC("Procurador");
 
     private final String value;
 }

@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -150,26 +151,13 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
 
     @Override
     public String getRelationTypeValue(String relationType) {
-        String relationTypeToBeReturned = null;
-        if(RelationType.TT.name().equals(relationType)){
-            relationTypeToBeReturned = RelationType.TT.getValue();
-        } else if (RelationType.PG.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.PG.getValue();
-        } else if (RelationType.PC.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.PC.getValue();
-        }else if (RelationType.AD.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.AD.getValue();
-        }else if (RelationType.G.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.G.getValue();
-        }else if (RelationType.D.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.D.getValue();
-        }else if (RelationType.CC.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.CC.getValue();
-        }else if (RelationType.SG.name().equals(relationType)) {
-            relationTypeToBeReturned = RelationType.SG.getValue();
-        }
+        final String[] relationTypeToBeReturned = {null};
+        Arrays.stream(RelationType.values())
+                .filter(relationType1 -> relationType1.name().equals(relationType))
+                .findFirst()
+                .ifPresent(relationType1 -> relationTypeToBeReturned[0] = relationType1.getValue());
 
-        return relationTypeToBeReturned;
+        return relationTypeToBeReturned[0];
     }
 
     @Override

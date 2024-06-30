@@ -1,7 +1,7 @@
 package com.bank.onboarding.commonslib.persistence.constants;
 
 import com.bank.onboarding.commonslib.persistence.enums.DocumentType;
-import com.bank.onboarding.commonslib.persistence.enums.RelationType;
+import com.bank.onboarding.commonslib.persistence.enums.InterventionType;
 import com.github.javafaker.Faker;
 
 import java.util.List;
@@ -35,13 +35,29 @@ import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.DI;
 import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.DIF;
 import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.FAC;
 import static com.bank.onboarding.commonslib.persistence.enums.DocumentType.FIN;
-import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.AD;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.AB;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.CR;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.DR;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.PC;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.PRL;
 import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.TT;
+import static com.bank.onboarding.commonslib.persistence.enums.InterventionType.TTR;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.A;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.AD;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.AI;
 import static com.bank.onboarding.commonslib.persistence.enums.RelationType.D;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.DTOC;
 import static com.bank.onboarding.commonslib.persistence.enums.RelationType.G;
-import static com.bank.onboarding.commonslib.persistence.enums.RelationType.PC;
-import static com.bank.onboarding.commonslib.persistence.enums.RelationType.PG;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.IE;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.MC;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.MD;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.P;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.PR;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.R;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.RL;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.S;
 import static com.bank.onboarding.commonslib.persistence.enums.RelationType.SG;
+import static com.bank.onboarding.commonslib.persistence.enums.RelationType.V;
 
 public class OnboardingConstants {
     public static final List<String> PARTICULAR_ACCOUNT_TYPES = List.of(ORDEM.name(),BASE.name(), SMB.name(), POUPANCA.name(), ORDENADO.name());
@@ -56,7 +72,7 @@ public class OnboardingConstants {
     public static final List<String> DOCUMENT_TYPES_PHASE_3_CUSTOMER = List.of(CM.name(), CPEP.name());
     public static final List<String> DOCUMENT_TYPES_PHASE_3_ACCOUNT = List.of(FAC.name(), FIN.name());
     public static final List<String> CUSTOMER_TYPES = List.of(PARTICULAR.name(), EMPRESA.name());
-    public static final List<String> INTERVENTIONS_TYPES = List.of(TT.name(), AD.name());
-    public static final List<String> RELATION_TYPES = List.of(RelationType.TT.name(), PG.name(), PC.name(), RelationType.AD.name(), G.name(), D.name(), RelationType.CC.name(), SG.name());
+    public static final List<String> INTERVENTIONS_TYPES = List.of(TT.name(), PRL.name(), TTR.name(), CR.name(), AB.name(), InterventionType.AI.name(), InterventionType.CC.name(), DR.name(), InterventionType.SG.name(), InterventionType.AD.name(), InterventionType.G.name(), InterventionType.A.name(), PC.name());
+    public static final List<String> RELATION_TYPES = List.of(DTOC.name(), P.name(), RL.name(), R.name(), G.name(), AD.name(), V.name(), MD.name(), S.name(), SG.name(), A.name(), PR.name(), IE.name(), D.name(), MC.name(), AI.name());
     public static final Faker faker = new Faker(new Locale("pt"));
 }

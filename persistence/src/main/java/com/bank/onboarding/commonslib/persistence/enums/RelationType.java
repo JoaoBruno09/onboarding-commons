@@ -6,14 +6,22 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RelationType {
-    TT("Tutor"),
-    PG("Progenitor"),
-    PC("Procurador"),
-    AD("Adminitrador"),
+    DTOC("Direção de Topo e/ou Outro tipo de Controlo"),
+    P("Participante"),
+    RL("Representante Legal"),
+    R("Representado"),
     G("Gerente"),
+    AD("Adminitrador"),
+    V("Vogal"),
+    MD("Membro Dirigente"),
+    S("Sócio"),
+    SG("Sócio-Gerente"),
+    A("Acionista"),
+    PR("Presidente"),
+    IE("Interveniente Estatuário"),
     D("Diretor"),
-    CC("Cabeça de Casal"),
-    SG("Sócio-Gerente");
+    MC("Membro Consórcio"),
+    AI("Administrador de Insolvência");
 
     private final String value;
 }
