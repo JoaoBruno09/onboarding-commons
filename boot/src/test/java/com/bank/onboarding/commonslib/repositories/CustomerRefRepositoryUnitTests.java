@@ -17,13 +17,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildAccount;
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildContact;
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildCustomer;
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildCustomerRef;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildAccount;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildContact;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildCustomer;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildCustomerRef;
 
 @SpringBootTest(classes = Application.class)
-class CustomerRefRepositoryTests {
+class CustomerRefRepositoryUnitTests {
 
 	@Autowired
 	private CustomerRefRepository customerRefRepository;

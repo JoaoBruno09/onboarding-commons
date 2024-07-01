@@ -15,12 +15,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildAccount;
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildContact;
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildCustomer;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildAccount;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildContact;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildCustomer;
 
 @SpringBootTest(classes = Application.class)
-class CustomerRepositoryTests {
+class CustomerRepositoryUnitTests {
 
 	@Autowired
 	private ContactRepository contactRepository;

@@ -22,7 +22,7 @@ import com.bank.onboarding.commonslib.persistence.models.identifiers.ContactIden
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class OnboardingUtilsTests {
+public class TestOnboardingUtils {
 
     public static Account buildAccount(){
         String iban = "PT50 0000 2927 8040 8012 4082 5";

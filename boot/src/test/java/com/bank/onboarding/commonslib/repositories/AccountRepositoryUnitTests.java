@@ -11,10 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static com.bank.onboarding.commonslib.OnboardingUtilsTests.buildAccount;
+import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildAccount;
 
 @SpringBootTest(classes = Application.class)
-class AccountRepositoryTests {
+class AccountRepositoryUnitTests {
 
 	@Autowired
 	private AccountRepository accountRepository;
