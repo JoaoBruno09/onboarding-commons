@@ -11,14 +11,14 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class CustomerRequestDTO {
-    LocalDateTime customerBirthDate;
-    ContactDTO customerContact;
-    DocumentIdDTO customerDocId;
-    TaxIdDTO customerTaxId;
-    String customerFirstName;
-    String customerLastName;
-    String customerType;
-    String customerInterventionType;
-    String customerRelationType;
-    List<CustomerDocumentsRequest> customerDocuments;
+    private LocalDateTime customerBirthDate;
+    private ContactDTO customerContact;
+    private DocumentIdDTO customerDocId;
+    private TaxIdDTO customerTaxId;
+    private String customerFirstName;
+    private String customerLastName;
+    private String customerType;
+    private String customerInterventionType;
+    private String customerRelationType;
+    private List<CustomerDocumentsRequest> customerDocuments;
 }

@@ -1,6 +1,6 @@
 package com.bank.onboarding.commonslib.web.dtos.customer;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class CreateIntervenientDTO {
     @NotNull
-    CustomerRequestDTO intervenient;
+    private CustomerRequestDTO intervenient;
     @NotNull
-    int accountPhase;
-    @NotBlank
-    @NotNull
-    String accountNumber;
+    private int accountPhase;
+    @NotEmpty
+    private String accountNumber;
 }

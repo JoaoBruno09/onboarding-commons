@@ -18,8 +18,6 @@ public class UpdateCustomerRequestDTO {
     @NotBlank
     private String annualIncome;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
-    @NotBlank
-    @NotNull
     private LocalDateTime birthDate;
     @NotEmpty
     private List<ContactDTO> contacts;
@@ -29,13 +27,11 @@ public class UpdateCustomerRequestDTO {
     private String educationLevel;
     @NotBlank
     private String fatherName;
-    @NotBlank
-    @NotNull
+    @NotEmpty
     private String firstName;
     @NotBlank
     private String gender;
-    @NotBlank
-    @NotNull
+    @NotEmpty
     private String lastName;
     @NotBlank
     private String motherName;
