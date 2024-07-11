@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildAddress;
+import static com.bank.onboarding.commonslib.utils.TestOnboardingUtils.buildAddress;
 
 @SpringBootTest(classes = Application.class)
 class AddressRepositoryUnitTests {

@@ -17,10 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildAccount;
-import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildContact;
-import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildCustomer;
-import static com.bank.onboarding.commonslib.TestOnboardingUtils.buildCustomerRef;
+import static com.bank.onboarding.commonslib.utils.TestOnboardingUtils.buildAccount;
+import static com.bank.onboarding.commonslib.utils.TestOnboardingUtils.buildContact;
+import static com.bank.onboarding.commonslib.utils.TestOnboardingUtils.buildCustomer;
+import static com.bank.onboarding.commonslib.utils.TestOnboardingUtils.buildCustomerRef;
 
 @SpringBootTest(classes = Application.class)
 class CustomerRefRepositoryUnitTests {
