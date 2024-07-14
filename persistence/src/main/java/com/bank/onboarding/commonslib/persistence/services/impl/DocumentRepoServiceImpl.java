@@ -38,12 +38,12 @@ public class DocumentRepoServiceImpl implements DocumentRepoService {
     }
 
     @Override
-    public void deleteDocumentByAccountNumberOrCustomerNumber(String id, boolean isAccountDoc) {
+    public void deleteDocumentByAccountNumberOrCustomerNumber(String id, String documentType, boolean isAccountDoc) {
         Document documentToBeDeleted;
         if(Boolean.TRUE.equals(isAccountDoc)){
-            documentToBeDeleted = documentRepository.findByAccountNumber(id);
+            documentToBeDeleted = documentRepository.findByAccountNumberAndDocumentType(id, documentType);
         }else {
-            documentToBeDeleted = documentRepository.findByCustomerNumber(id);
+            documentToBeDeleted = documentRepository.findByCustomerNumberAndDocumentType(id, documentType);
         }
 
         documentRepository.deleteById(documentToBeDeleted.getId());

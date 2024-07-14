@@ -121,8 +121,8 @@ public class TestOnboardingUtils {
 
     public static Document buildDoc(String customerNumber, String accountNumber){
         return Document.builder()
-                .documentName(DocumentType.CC.getValue())
-                .documentType(DocumentType.CC.name())
+                .documentName(DocumentType.CM.getValue())
+                .documentType(DocumentType.CM.name())
                 .documentBase64("DOCUMENTBASE64TESTSPURPOSES")
                 .uploadedTime(LocalDateTime.now())
                 .customerNumber(customerNumber)
@@ -211,7 +211,7 @@ public class TestOnboardingUtils {
 
     public static DeleteDocumentRequestDTO buildDeleteDocumentRequestDTO(){
         return DeleteDocumentRequestDTO.builder()
-                .documentType(DocumentType.BI.name())
+                .documentType(DocumentType.CM.name())
                 .customerNumber("C123456789")
                 .accountNumber(IBAN.trim().replaceAll(" ", "").substring(IBAN.length()-19))
                 .accountPhase(AccountPhase.DOCS.getValue())
@@ -220,7 +220,7 @@ public class TestOnboardingUtils {
 
     public static UploadDocumentRequestDTO buildUploadDocumentRequestDTO(){
         return UploadDocumentRequestDTO.builder()
-                .documentType(DocumentType.BI.name())
+                .documentType(DocumentType.CM.name())
                 .documentBase64("JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBvYmoKP")
                 .customerNumber("C123456789")
                 .accountNumber(IBAN.trim().replaceAll(" ", "").substring(IBAN.length()-19))
