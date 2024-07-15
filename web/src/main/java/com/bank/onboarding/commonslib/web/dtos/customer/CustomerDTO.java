@@ -16,7 +16,6 @@ public class CustomerDTO {
     private List<AddressDTO> addresses;
     @NotEmpty
     private String annualIncome;
-    @NotEmpty
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime birthDate;
     private Boolean cardIndicator;

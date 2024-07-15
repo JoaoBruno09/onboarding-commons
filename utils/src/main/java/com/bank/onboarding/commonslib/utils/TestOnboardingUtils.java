@@ -248,7 +248,7 @@ public class TestOnboardingUtils {
     public static CreateIntervenientDTO buildCreateIntervenientDTO(){
         return CreateIntervenientDTO.builder()
                 .intervenient(buildCustomerRequestDTO())
-                .accountPhase(AccountPhase.RELCARD.getValue())
+                .accountPhase(AccountPhase.INTYPE.getValue())
                 .accountNumber(IBAN.trim().replaceAll(" ", "").substring(IBAN.length()-19))
                 .build();
     }

@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -89,8 +90,7 @@ public class OnboardingUtilsImpl implements OnboardingUtils {
                 if(!Objects.equals(RELCARD.getValue(), requestPhase)) throwInvalidPhaseForOperationTypeException();
             }
             case UPDATE_CUSTOMER -> {
-                if(!Objects.equals(INTYPE.getValue(), requestPhase) ||
-                        !Objects.equals(RELCARD.getValue(), requestPhase)) throwInvalidPhaseForOperationTypeException();
+                if(!List.of(INTYPE.getValue(),RELCARD.getValue()).contains(requestPhase)) throwInvalidPhaseForOperationTypeException();
             }
             case DOCS_UPLOAD, DOCS_DELETE -> {
                 if(!Objects.equals(DOCS.getValue(), requestPhase)) throwInvalidPhaseForOperationTypeException();
