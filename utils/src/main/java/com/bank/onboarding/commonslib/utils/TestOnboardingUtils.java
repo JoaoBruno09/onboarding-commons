@@ -188,6 +188,16 @@ public class TestOnboardingUtils {
                 .build();
     }
 
+    public static Card buildCard(String accountId){
+        return  Card.builder()
+                .annualFee(10.0)
+                .cvc(111)
+                .number("1234-5678-9101-1121")
+                .type(CardType.CD.name())
+                .accountId(accountId)
+                .build();
+    }
+
     public static AccountDeleteCardDTO deleteAccountCardDTO(){
         return AccountDeleteCardDTO.builder()
                 .accountPhase(AccountPhase.RELCARD.getValue())
