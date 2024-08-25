@@ -24,6 +24,15 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  apigateway:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./default-api-gateway.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - onboardingbank
+
 networks:
   onboardingbank:
     external: true
