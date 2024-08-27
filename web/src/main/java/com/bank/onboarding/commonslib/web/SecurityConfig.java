@@ -55,7 +55,7 @@ public class SecurityConfig {
                 .claims(claims)
                 .subject(ONBOARDING_USER_NAME)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 1000*60*3))
+                .expiration(new Date(System.currentTimeMillis() + 10000*60*3))
                 .signWith(getKey()).compact();
 
         log.info("Token generated: {}", jwts);
@@ -63,13 +63,9 @@ public class SecurityConfig {
         return jwts;
     }
 
-    public String getUsername(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
+    public String getUsername(String token) {return extractClaim(token, Claims::getSubject);}
 
-    public boolean validateToken(String token, String userName) {
-        return ONBOARDING_USER_NAME.equals(userName) && !isTokenExpired(token);
-    }
+    public boolean validateToken(String token, String userName) {return ONBOARDING_USER_NAME.equals(userName) && !isTokenExpired(token);}
 
     private Key getKey(){
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
@@ -81,9 +77,7 @@ public class SecurityConfig {
         return claimResolver.apply(claims);
     }
 
-    private Claims extractAllClaims(String token) {
-        return Jwts.parser().setSigningKey(getKey()).build().parseClaimsJws(token).getPayload();
-    }
+    private Claims extractAllClaims(String token) {return Jwts.parser().setSigningKey(getKey()).build().parseClaimsJws(token).getPayload();}
 
     private boolean isTokenExpired(String token) {
         return extractTokenExpirationDate(token).before(new Date());
