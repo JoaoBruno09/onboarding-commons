@@ -55,7 +55,7 @@ public class SecurityConfig {
                 .claims(claims)
                 .subject(ONBOARDING_USER_NAME)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 10000*60*3))
+                .expiration(new Date(System.currentTimeMillis() + 1000000*60*3))
                 .signWith(getKey()).compact();
 
         log.info("Token generated: {}", jwts);
