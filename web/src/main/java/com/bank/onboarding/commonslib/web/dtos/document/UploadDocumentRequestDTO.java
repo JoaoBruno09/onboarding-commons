@@ -14,11 +14,7 @@ public class UploadDocumentRequestDTO {
     @NotBlank
     @NotNull
     String documentBase64;
-    @NotBlank
-    @NotNull
     String customerNumber;
-    @NotBlank
-    @NotNull
     String accountNumber;
     @NotNull
     int accountPhase;
