@@ -23,7 +23,7 @@ public class CustomerRefRepoServiceImpl implements CustomerRefRepoService {
 
     @Override
     public CustomerRef findCustomerRefByCustomerNumber(String customerNumber) {
-        return customerRefRepository.findByCustomerNumber(customerNumber);
+        return Optional.ofNullable(customerRefRepository.findByCustomerNumber(customerNumber)).orElse(CustomerRef.builder().build());
     }
 
     @Override

@@ -12,7 +12,7 @@ public class AsyncExecutorImpl implements AsyncExecutor {
     @Override
     public void execute(List<CompletableFuture<?>> cfs) {
         try {
-            CompletableFuture.allOf((CompletableFuture<?>) cfs).get();
+            CompletableFuture.allOf(cfs.toArray(new CompletableFuture[0])).get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
