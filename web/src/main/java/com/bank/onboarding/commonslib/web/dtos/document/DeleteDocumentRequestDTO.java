@@ -11,11 +11,7 @@ public class DeleteDocumentRequestDTO {
     @NotBlank
     @NotNull
     String documentType;
-    @NotBlank
-    @NotNull
     String customerNumber;
-    @NotBlank
-    @NotNull
     String accountNumber;
     @NotNull
     int accountPhase;
